@@ -55,8 +55,7 @@ function showMovies(data){
 
 }
 
-//color vote
-
+//color
 function getColor(vote) {
     if(vote>=8){
         return 'green'
