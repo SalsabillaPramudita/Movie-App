@@ -1,3 +1,3 @@
 # Movie-App
-Nama : Salsabilla Pramudita
+Nama : Salsabilla Pramudita\
 Track : FrontEnd Development
