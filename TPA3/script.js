@@ -23,9 +23,21 @@ function getMovies(url){
 function showMovies(data){
     main.innerHTML = '';
 
+    //date
+    let nameMonth = new Array("Jan", "Feb", "Mar", 
+    "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
+    "Oct", "Nov", "Dec");
+
     data.forEach(movie => {
-        val = Date.toString();
         const {title, poster_path, vote_average, overview, release_date} = movie;
+
+        const d = new Date(release_date)
+        let days = d.getDate();
+        let months = d.getMonth();
+        let years = d.getFullYear();
+        let date = nameMonth[months]+" "+days+", "+years
+
+        
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
@@ -42,20 +54,19 @@ function showMovies(data){
             
         </div>
 
-        <div class="date-release">
-        <span class="black">${release_date}</span>     
+        <div class="date">
+        <p id="date">${date}</p>     
         </div>
 
         
         `
-
         main.appendChild(movieEl);
         
     });
-
 }
 
-//color
+//color vote
+
 function getColor(vote) {
     if(vote>=8){
         return 'green'
